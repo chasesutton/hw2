@@ -7,9 +7,14 @@ class MoviesController < ApplicationController
   end
 
   def index
-
     @sort_by= params[:sort]                       #@movies getter and setter for model attribute
-    @movies = Movie.order(@sort_by)
+
+    @filter_by_rating = (params[:rating]) ? params[:ratings].keys : Movie.ratings
+    #ternary operator: if params[:rating] is true then access the key otherwise get the ratings
+
+    @movies = Movie.order(@sort_by)               #.order ruby method
+
+    @all_ratings = Movie.ratings
   end
 
   def new

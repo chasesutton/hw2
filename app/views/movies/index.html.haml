@@ -1,12 +1,23 @@
 -#  This file is app/views/movies/index.html.haml
 %h1 All Movies
 
+= form_tag movies_path, :method => :get do
+  Include:
+  - @all_ratings.each do |rating|
+    = rating
+    = check_box_tag "ratings[#{rating}]", "1", (true if @filter_by_rating.include?(rating))
+  = submit_tag 'Refresh'
+
+
+
 %table#movies
   %thead
     %tr
       %th{:class => ("hilite" if @sort_by == "title")}= link_to "Movie Title", movies_path(sort: "title"), id: "title_header"
+      //HAML will make class hilite if sorted by title, when Movie Title is clicked it is sorted by title and the id becomes title header
       %th Rating
       %th{:class => ("hilite" if @sort_by == "release_date")}= link_to "Release Date", movies_path(sort: "release_date"), id: "release_date_header"
+      //HAML will make class hilite if sorted by title, when Realease date is clicked it is sorted by release_date and the id become release_date_header
       %th More Info
   %tbody
     - @movies.each do |movie|

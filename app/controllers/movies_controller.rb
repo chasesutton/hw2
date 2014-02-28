@@ -7,7 +7,9 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.order(params[:sort])
+
+    @sort_by= params[:sort]                       #@movies getter and setter for model attribute
+    @movies = Movie.order(@sort_by)
   end
 
   def new

@@ -1,1 +1,6 @@
-calm-oasis-3252.herokuapp.com/movies
+for project: calm-oasis-3252.herokuapp.com/movies
+
+
+for ch1 of tutorial: http://fierce-ridge-5513.herokuapp.com/movies
+
+for ch2 of tutorial: http://murmuring-taiga-6089.herokuapp.com/movies
